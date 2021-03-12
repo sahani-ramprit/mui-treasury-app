@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { StylesProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
+
 import {
   Root,
   getHeader,
@@ -15,19 +15,11 @@ import {
   getContent,
   getFooter
 } from "@mui-treasury/layout";
-import {
-  getDefaultScheme,
-  getStandardScheme,
-  getFixedScheme,
-  getContentBasedScheme,
-  getCozyScheme,
-  getMuiTreasuryScheme
-} from "@mui-treasury/layout/presets";
+import { getCozyScheme } from "@mui-treasury/layout/presets";
 
 import NavContentEx from "./components/NavContentEx";
 import NavHeaderEx from "./components/NavHeaderEx";
 import HeaderEx from "./components/HeaderEx";
-import ContentForm from "./components/ContentForm";
 import ContentEx from "./components/ContentEx";
 import FooterEx from "./components/FooterEx";
 
@@ -41,68 +33,32 @@ const CollapseBtn = getCollapseBtn(styled);
 const Content = getContent(styled);
 const Footer = getFooter(styled);
 
-const presets = {
-  createDefaultLayout: getDefaultScheme(),
-  createStandardLayout: getStandardScheme(),
-  createFixedLayout: getFixedScheme(),
-  createContentBasedLayout: getContentBasedScheme(),
-  createCozyLayout: getCozyScheme(),
-  createMuiTreasuryLayout: getMuiTreasuryScheme()
-};
-
 function App() {
-  const [loading, setLoading] = useState(false);
-  const [preset, setPreset] = useState("createStandardLayout");
-  const [data, setData] = useState({
-    header: true,
-    nav: true,
-    content: true,
-    footer: true
-  });
-  return loading ? (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <Typography variant={"h2"}>Changing Preset...</Typography>
-    </div>
-  ) : (
+  return (
     <StylesProvider injectFirst>
       <CssBaseline />
-      <Root scheme={presets[preset]}>
+      <Root scheme={getCozyScheme()}>
         {({ state: { sidebar } }) => (
           <>
             <Header>
               <Toolbar>
                 <SidebarTrigger sidebarId="primarySidebar" />
-                {data.header && <HeaderEx />}
+                <HeaderEx />
               </Toolbar>
             </Header>
             <DrawerSidebar sidebarId="primarySidebar">
               <SidebarContent>
                 <NavHeaderEx collapsed={sidebar.primarySidebar.collapsed} />
-                {data.nav && <NavContentEx />}
+                <NavContentEx />
               </SidebarContent>
               <CollapseBtn />
             </DrawerSidebar>
             <Content>
-              <ContentForm
-                preset={preset}
-                onChangePreset={(val) => {
-                  setLoading(true);
-                  setPreset(val);
-                  setTimeout(() => setLoading(false), 500);
-                }}
-                data={data}
-                onChangeData={setData}
-              />
-              {data.content && <ContentEx />}
+              <ContentEx />
             </Content>
-            <Footer>{data.footer && <FooterEx />}</Footer>
+            <Footer>
+              <FooterEx />
+            </Footer>
           </>
         )}
       </Root>
