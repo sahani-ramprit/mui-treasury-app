@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { withStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import {
   Root,
@@ -28,18 +27,7 @@ const CollapseBtn = getCollapseBtn(styled);
 const Content = getContent(styled);
 const Footer = getFooter(styled);
 
-const styles = ({ breakpoints }) => ({
-  root: {
-    [breakpoints.up("sm")]: {
-      marginLeft: "156px"
-    },
-    [breakpoints.up("md")]: {
-      marginLeft: "256px"
-    }
-  }
-});
-
-function Layout({ children, classes }) {
+function Layout({ children }) {
   return (
     <Root scheme={getCozyScheme()}>
       {({ state: { sidebar } }) => (
@@ -57,7 +45,7 @@ function Layout({ children, classes }) {
             </SidebarContent>
             <CollapseBtn />
           </DrawerSidebar>
-          <Content className={classes.root}>
+          <Content>
             <PageWrapper>{children}</PageWrapper>
           </Content>
           <Footer>
@@ -69,4 +57,4 @@ function Layout({ children, classes }) {
   );
 }
 
-export default withStyles(styles)(Layout);
+export default Layout;
