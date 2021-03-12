@@ -8,36 +8,20 @@ import Divider from "@material-ui/core/Divider";
 
 const list = [
   {
-    primaryText: "My Files",
-    icon: "folder"
+    primaryText: "Home",
+    icon: "home"
   },
   {
-    primaryText: "Shared with me",
+    primaryText: "Inbox",
     icon: "people"
   },
   {
-    primaryText: "Starred",
+    primaryText: "Report",
     icon: "star"
   },
   {
     primaryText: "Recent",
     icon: "schedule"
-  },
-  {
-    primaryText: "Offline",
-    icon: "offline_pin"
-  },
-  {
-    primaryText: "Uploads",
-    icon: "publish"
-  },
-  {
-    primaryText: "Backups",
-    icon: "backup"
-  },
-  {
-    primaryText: "Trash",
-    icon: "delete"
   }
 ];
 const NavContentEx = () => (
