@@ -22,22 +22,6 @@ const list = [
   {
     primaryText: "Recent",
     icon: "schedule"
-  },
-  {
-    primaryText: "Offline",
-    icon: "offline_pin"
-  },
-  {
-    primaryText: "Uploads",
-    icon: "publish"
-  },
-  {
-    primaryText: "Backups",
-    icon: "backup"
-  },
-  {
-    primaryText: "Trash",
-    icon: "delete"
   }
 ];
 const NavContentEx = () => (
