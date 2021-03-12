@@ -1,25 +1,10 @@
-/* eslint-disable */
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import PageWrapper from "./PageWrapper";
 
-const styles = ({ breakpoints }) => ({
-  root: {
-    padding: 16,
-    [breakpoints.up("sm")]: {
-      padding: 24,
-      maxWidth: 500,
-      margin: "auto"
-    },
-    [breakpoints.up("md")]: {
-      maxWidth: 700
-    }
-  }
-});
-
-const ContentEx = ({ classes }) => (
-  <div className={classes.root}>
+const ContentEx = () => (
+  <PageWrapper>
     <Typography variant={"overline"}>INTRODUCING</Typography>
     <Typography weight={"bold"} variant={"h4"} gutterBottom>
       Material UI <Link underline={"none"}>Layout</Link>
@@ -118,10 +103,10 @@ const ContentEx = ({ classes }) => (
     <br />
     <br />
     <br />
-  </div>
+  </PageWrapper>
 );
 
 ContentEx.propTypes = {};
 ContentEx.defaultProps = {};
 
-export default withStyles(styles)(ContentEx);
+export default ContentEx;

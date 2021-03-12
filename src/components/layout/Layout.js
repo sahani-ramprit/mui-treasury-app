@@ -44,7 +44,7 @@ function Layout({ children }) {
             </SidebarContent>
             <CollapseBtn />
           </DrawerSidebar>
-          <Content>{children}</Content>
+          <Content style={{ marginLeft: "20px" }}>{children}</Content>
           <Footer>
             <FooterEx />
           </Footer>
