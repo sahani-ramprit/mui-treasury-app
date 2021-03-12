@@ -1,10 +1,9 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import PageWrapper from "./PageWrapper";
 
 const ContentEx = () => (
-  <PageWrapper>
+  <>
     <Typography variant={"overline"}>INTRODUCING</Typography>
     <Typography weight={"bold"} variant={"h4"} gutterBottom>
       Material UI <Link underline={"none"}>Layout</Link>
@@ -103,7 +102,7 @@ const ContentEx = () => (
     <br />
     <br />
     <br />
-  </PageWrapper>
+  </>
 );
 
 ContentEx.propTypes = {};

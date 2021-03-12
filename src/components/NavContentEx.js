@@ -8,15 +8,15 @@ import Divider from "@material-ui/core/Divider";
 
 const list = [
   {
-    primaryText: "My Files",
-    icon: "folder"
+    primaryText: "Home",
+    icon: "home"
   },
   {
-    primaryText: "Shared with me",
+    primaryText: "Inbox",
     icon: "people"
   },
   {
-    primaryText: "Starred",
+    primaryText: "Report",
     icon: "star"
   },
   {

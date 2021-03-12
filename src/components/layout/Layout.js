@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { withStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import {
   Root,
@@ -17,6 +18,7 @@ import NavContentEx from "../NavContentEx";
 import NavHeaderEx from "../NavHeaderEx";
 import HeaderEx from "../HeaderEx";
 import FooterEx from "../FooterEx";
+import PageWrapper from "../PageWrapper";
 
 const Header = getHeader(styled);
 const DrawerSidebar = getDrawerSidebar(styled);
@@ -26,7 +28,18 @@ const CollapseBtn = getCollapseBtn(styled);
 const Content = getContent(styled);
 const Footer = getFooter(styled);
 
-function Layout({ children }) {
+const styles = ({ breakpoints }) => ({
+  root: {
+    [breakpoints.up("sm")]: {
+      marginLeft: "156px"
+    },
+    [breakpoints.up("md")]: {
+      marginLeft: "256px"
+    }
+  }
+});
+
+function Layout({ children, classes }) {
   return (
     <Root scheme={getCozyScheme()}>
       {({ state: { sidebar } }) => (
@@ -44,7 +57,9 @@ function Layout({ children }) {
             </SidebarContent>
             <CollapseBtn />
           </DrawerSidebar>
-          <Content style={{ marginLeft: "20px" }}>{children}</Content>
+          <Content className={classes.root}>
+            <PageWrapper>{children}</PageWrapper>
+          </Content>
           <Footer>
             <FooterEx />
           </Footer>
@@ -54,4 +69,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default withStyles(styles)(Layout);
